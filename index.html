@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fatih Selim Baytar — Data Scientist & AI/ML Engineer</title>
+  <meta name="description" content="Fatih Selim Baytar — Data Scientist ve AI/ML Engineer adayı. Makine öğrenmesi, veri analizi ve yapay zeka projeleri." />
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f4f3f1;
+      --bg-card: #ffffff;
+      --bg-dark: #1a1a1a;
+      --text: #1a1a1a;
+      --text-muted: #7a7a7a;
+      --text-light: #b0b0b0;
+      --border: #e2e0dc;
+      --border-dark: #c8c5bf;
+      --accent: #2d2d2d;
+      --tag-bg: #efefed;
+      --tag-text: #444;
+      --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.08);
+    }
+
+    [data-theme="dark"] {
+      --bg: #111111;
+      --bg-card: #1c1c1c;
+      --bg-dark: #f4f3f1;
+      --text: #e8e6e2;
+      --text-muted: #888;
+      --text-light: #555;
+      --border: #2a2a2a;
+      --border-dark: #333;
+      --accent: #e8e6e2;
+      --tag-bg: #242424;
+      --tag-text: #aaa;
+      --shadow: 0 1px 3px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.2);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px;
+      height: 60px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+
+    .nav-logo {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 28px;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-right {
+      display: flex; align-items: center; gap: 12px;
+    }
+
+    /* Lang toggle */
+    .lang-toggle {
+      display: flex; align-items: center;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3px;
+      gap: 2px;
+    }
+    .lang-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 16px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.05em;
+    }
+    .lang-btn.active {
+      background: var(--bg-card);
+      color: var(--text);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* Theme toggle */
+    .theme-btn {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--tag-bg);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+      transition: all 0.2s;
+    }
+    .theme-btn:hover { background: var(--border); }
+
+    /* ── SECTIONS ── */
+    section { padding: 80px 0; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 40px; }
+
+    /* ── HERO ── */
+    #hero {
+      padding-top: 140px;
+      padding-bottom: 100px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hero-label::before {
+      content: '';
+      width: 24px; height: 1px;
+      background: var(--text-muted);
+      display: inline-block;
+    }
+
+    .hero-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(40px, 5vw, 58px);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .hero-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      margin-bottom: 28px;
+    }
+
+    .hero-bio {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 520px;
+      margin-bottom: 36px;
+    }
+
+    .hero-cta {
+      display: flex; gap: 12px; flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--text);
+      color: var(--bg);
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent;
+      color: var(--text);
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid var(--border-dark);
+      letter-spacing: 0.02em;
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { background: var(--tag-bg); transform: translateY(-1px); }
+
+    /* Profile photo */
+    .hero-photo {
+      width: 200px; height: 200px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--tag-bg);
+      flex-shrink: 0;
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-photo-placeholder {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 8px;
+      color: var(--text-light);
+    }
+    .hero-photo-placeholder svg { opacity: 0.4; }
+    .hero-photo-placeholder span {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      opacity: 0.5;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 40px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── ABOUT ── */
+    #about { border-bottom: 1px solid var(--border); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      font-size: 15px;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+
+    .about-sidebar {
+      display: flex; flex-direction: column; gap: 20px;
+    }
+
+    .info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .info-card-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 6px;
+    }
+
+    .info-card-value {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .work-mode-tags {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px;
+    }
+
+    .wm-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── SKILLS ── */
+    #skills { border-bottom: 1px solid var(--border); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .skill-group {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .skill-group-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    .skill-tags {
+      display: flex; flex-wrap: wrap; gap: 7px;
+    }
+
+    .skill-tag {
+      font-size: 13px;
+      font-weight: 400;
+      padding: 5px 12px;
+      border-radius: 5px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border: 1px solid var(--border);
+      transition: all 0.15s;
+    }
+    .skill-tag:hover { border-color: var(--border-dark); color: var(--text); }
+
+    .skill-group.soft .skill-tag {
+      font-style: italic;
+    }
+
+    /* ── EXPERIENCE ── */
+    #experience { border-bottom: 1px solid var(--border); }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-item:first-child { padding-top: 0; }
+    .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .exp-meta {}
+    .exp-period {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .exp-company {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .exp-location {
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    .exp-content {}
+    .exp-role {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .exp-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .exp-techs { display: flex; flex-wrap: wrap; gap: 6px; }
+    .exp-tech {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border: 1px solid var(--border);
+    }
+
+    /* ── PROJECTS ── */
+    #projects { border-bottom: 1px solid var(--border); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex; flex-direction: column;
+    }
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .project-thumb {
+      width: 100%;
+      height: 160px;
+      background: var(--tag-bg);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Decorative pattern for placeholders */
+    .project-thumb-pattern {
+      width: 100%; height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-thumb-pattern::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, var(--border-dark) 1px, transparent 1px);
+      background-size: 20px 20px;
+      opacity: 0.5;
+    }
+    .project-thumb-label {
+      position: absolute;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      background: var(--bg-card);
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+
+    .project-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-body {
+      padding: 22px;
+      flex: 1;
+      display: flex; flex-direction: column;
+    }
+
+    .project-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .project-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+
+    .project-problem {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      padding: 12px;
+      background: var(--tag-bg);
+      border-radius: 6px;
+      border-left: 2px solid var(--border-dark);
+      margin-bottom: 16px;
+    }
+    .project-problem strong {
+      display: block;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 4px;
+    }
+
+    .project-techs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+    .project-tech {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border: 1px solid var(--border);
+    }
+
+    .project-links { display: flex; gap: 10px; }
+    .project-link {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      transition: all 0.15s;
+    }
+    .project-link:hover { color: var(--text); border-color: var(--border-dark); }
+
+    /* ── CERTIFICATES ── */
+    #certificates { border-bottom: 1px solid var(--border); }
+
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .cert-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      display: flex; flex-direction: column; gap: 10px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: default;
+    }
+    .cert-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .cert-logo {
+      width: 40px; height: 40px;
+      border-radius: 8px;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .cert-logo img { width: 100%; height: 100%; object-fit: contain; }
+
+    .cert-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .cert-issuer {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--text-light);
+      letter-spacing: 0.04em;
+    }
+
+    .cert-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--text-light);
+    }
+
+    .cert-placeholder {
+      border: 1.5px dashed var(--border-dark);
+      background: transparent;
+    }
+    .cert-placeholder .cert-logo { background: transparent; border-style: dashed; }
+    .cert-placeholder .cert-name { color: var(--text-light); font-style: italic; }
+
+    /* ── EDUCATION ── */
+    #education { border-bottom: 1px solid var(--border); }
+
+    .edu-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .edu-item:first-child { padding-top: 0; }
+    .edu-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .edu-period {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .edu-school {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .edu-degree {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .edu-note {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-light);
+    }
+
+    /* ── CONTACT ── */
+    #contact { }
+
+    .contact-links {
+      display: flex; flex-direction: column; gap: 1px;
+    }
+
+    .contact-row {
+      display: flex; align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      gap: 20px;
+      text-decoration: none;
+      color: var(--text-muted);
+      transition: color 0.2s;
+      group: true;
+    }
+    .contact-row:first-child { padding-top: 0; }
+    .contact-row:last-child { border-bottom: none; }
+    .contact-row:hover { color: var(--text); }
+    .contact-row:hover .contact-arrow { transform: translate(2px, -2px); }
+
+    .contact-platform {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      width: 100px;
+      flex-shrink: 0;
+      color: var(--text-light);
+    }
+
+    .contact-value {
+      font-size: 14px;
+      flex: 1;
+    }
+
+    .contact-arrow {
+      font-size: 16px;
+      transition: transform 0.2s;
+      color: var(--text-light);
+    }
+    .cert-card {
+        max-width: 350px; /* Kartların genişliğini sınırlar */
+        margin: 0 auto;
+    }
+    .cert-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+    }
+    .footer-inner {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-copy {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-light);
+      letter-spacing: 0.04em;
+    }
+    .footer-back {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-light);
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      display: flex; align-items: center; gap: 6px;
+      transition: color 0.2s;
+    }
+    .footer-back:hover { color: var(--text); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .container { padding: 0 20px; }
+
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-photo { display: none; }
+
+      .about-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .certs-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .exp-item,
+      .edu-item { grid-template-columns: 1fr; gap: 8px; }
+      .exp-period, .edu-period { font-size: 11px; }
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-inner { animation: fadeUp 0.6s ease both; }
+    .hero-bio   { animation: fadeUp 0.6s 0.1s ease both; }
+    .hero-cta   { animation: fadeUp 0.6s 0.2s ease both; }
+  </style>
+</head>
+<body data-theme="light">
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"></div>
+  <div class="nav-links">
+    <a href="#about" data-tr="Hakkımda" data-en="About">Hakkımda</a>
+    <a href="#skills" data-tr="Beceriler" data-en="Skills">Beceriler</a>
+    <a href="#projects" data-tr="Projeler" data-en="Projects">Projeler</a>
+    <a href="#certificates" data-tr="Sertifikalar" data-en="Certificates">Sertifikalar</a>
+    <a href="#education" data-tr="Eğitim" data-en="Education">Eğitim</a>
+    <a href="#contact" data-tr="İletişim" data-en="Contact">İletişim</a>
+  </div>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-tr" onclick="setLang('tr')">TR</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="Toggle theme">☀️</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-label" data-tr="" data-en=""></div>
+        <h1 class="hero-name">Fatih Selim<br>Baytar</h1>
+        <p class="hero-title">Data Scientist &amp; AI/ML Engineer</p>
+        <p class="hero-bio"
+           data-tr="Veri bilimi ve yapay zekâ alanlarına odaklanan, makine öğrenmesi ve veri analizi projeleri geliştiren bir Data Scientist / AI-ML Engineer adayım. Gerçek dünya problemlerine veri ve teknoloji ile çözümler üretmeye çalışıyor, uluslararası sertifikalarla kendimi sürekli geliştiriyorum."
+           data-en="I'm a Data Scientist / AI-ML Engineer candidate focused on data science and AI, developing machine learning and data analysis projects. I strive to build data-driven solutions to real-world problems while continuously improving through international certifications.">
+          Veri bilimi ve yapay zekâ alanlarına odaklanan, makine öğrenmesi ve veri analizi projeleri geliştiren bir Data Scientist / AI-ML Engineer adayım. Gerçek dünya problemlerine veri ve teknoloji ile çözümler üretmeye çalışıyor, uluslararası sertifikalarla kendimi sürekli geliştiriyorum.
+        </p>
+        <div class="hero-cta">
+          <a href="Fatih_Selim_Baytar_CV.pdf" download class="btn-primary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span data-tr="CV İndir" data-en="Download CV">CV İndir</span>
+          </a>
+          <a href="#contact" class="btn-secondary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+            <span data-tr="İletişime Geç" data-en="Get in Touch">İletişime Geç</span>
+          </a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <!-- FOTOĞRAF: image.png dosyanı projeye ekle, aşağıdaki placeholder silinecek -->
+        <img src="image.jpg" alt="Fatih Selim Baytar"
+             onerror="this.parentElement.innerHTML='<div class=\'hero-photo-placeholder\'><svg width=\'48\' height=\'48\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'/><circle cx=\'12\' cy=\'7\' r=\'4\'/></svg><span>image.png</span></div>'" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-label" data-tr="Hakkımda" data-en="About Me">Hakkımda</div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p data-tr="Veri bilimi ve yapay zekâ alanlarına ilgi duyan, özellikle makine öğrenmesi (Machine Learning) ve veri analizi üzerine kendini geliştiren bir Data Scientist / AI-ML Engineer adayım. Veriyle anlamlı içgörüler üretmek ve gerçek dünya problemlerine teknoloji temelli çözümler geliştirmek benim için sadece bir kariyer hedefi değil, aynı zamanda büyük bir motivasyon kaynağıdır."
+           data-en="I'm a Data Scientist / AI-ML Engineer candidate passionate about data science and AI, especially machine learning and data analysis. Generating meaningful insights from data and building technology-based solutions to real-world problems is not just a career goal for me — it's a major source of motivation.">
+          Veri bilimi ve yapay zekâ alanlarına ilgi duyan, özellikle makine öğrenmesi (Machine Learning) ve veri analizi üzerine kendini geliştiren bir Data Scientist / AI-ML Engineer adayım. Veriyle anlamlı içgörüler üretmek ve gerçek dünya problemlerine teknoloji temelli çözümler geliştirmek benim için sadece bir kariyer hedefi değil, aynı zamanda büyük bir motivasyon kaynağıdır.
+        </p>
+        <p data-tr="Teknik yolculuğum boyunca veri analizi, feature engineering, veri görselleştirme ve makine öğrenmesi modelleri üzerine çeşitli projeler geliştirdim. Python ekosisteminde çalışmayı seviyorum ve veri odaklı projelerimi sürekli olarak geliştirerek portföyümü büyütmeye odaklanıyorum."
+           data-en="Throughout my technical journey, I've developed various projects in data analysis, feature engineering, data visualization, and machine learning models. I enjoy working in the Python ecosystem and focus on growing my portfolio by continuously developing data-driven projects.">
+          Teknik yolculuğum boyunca veri analizi, feature engineering, veri görselleştirme ve makine öğrenmesi modelleri üzerine çeşitli projeler geliştirdim. Python ekosisteminde çalışmayı seviyorum ve veri odaklı projelerimi sürekli olarak geliştirerek portföyümü büyütmeye odaklanıyorum.
+        </p>
+        <p data-tr="Teknik çalışmalarımın dışında yeni teknolojileri keşfetmek, farklı veri setleri üzerinde projeler üretmek ve teknoloji topluluklarını takip etmekten hoşlanıyorum. Öğrenmeyi sürekli bir süreç olarak görüyor, her gün biraz daha gelişmeyi hedefliyorum."
+           data-en="Beyond technical work, I enjoy exploring new technologies, building projects on diverse datasets, and following tech communities. I view learning as a continuous process and aim to improve a little every day.">
+          Teknik çalışmalarımın dışında yeni teknolojileri keşfetmek, farklı veri setleri üzerinde projeler üretmek ve teknoloji topluluklarını takip etmekten hoşlanıyorum. Öğrenmeyi sürekli bir süreç olarak görüyor, her gün biraz daha gelişmeyi hedefliyorum.
+        </p>
+      </div>
+      <div class="about-sidebar">
+        <div class="info-card">
+          <div class="info-card-label" data-tr="Konum" data-en="Location">Konum</div>
+          <div class="info-card-value">📍 Türkiye</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label" data-tr="Çalışma Tercihi" data-en="Work Preference">Çalışma Tercihi</div>
+          <div class="work-mode-tags">
+            <span class="wm-tag">Remote</span>
+            <span class="wm-tag">Hybrid</span>
+            <span class="wm-tag">Onsite</span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label" data-tr="Alan" data-en="Focus Area">Alan</div>
+          <div class="info-card-value" data-tr="Data Science · AI/ML" data-en="Data Science · AI/ML">Data Science · AI/ML</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label" data-tr="E-posta" data-en="Email">E-posta</div>
+          <div class="info-card-value" style="font-size:12px;">fatihselimbaytarr@gmail.com</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label" data-tr="Teknik Beceriler" data-en="Technical Skills">Teknik Beceriler</div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <span data-tr="Programlama Dilleri" data-en="Languages">Programlama Dilleri</span>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">R</span>
+          <span class="skill-tag">SQL</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span data-tr="Framework & Kütüphaneler" data-en="Frameworks & Libraries">Framework &amp; Kütüphaneler</span>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">NumPy</span>
+          <span class="skill-tag">Scikit-learn</span>
+          <span class="skill-tag">Matplotlib</span>
+          <span class="skill-tag">Seaborn</span>
+          <span class="skill-tag">React</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          <span data-tr="Araçlar & Platformlar" data-en="Tools & Platforms">Araçlar &amp; Platformlar</span>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag">Git &amp; GitHub</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Jupyter Notebook</span>
+          <span class="skill-tag">Kaggle</span>
+          <span class="skill-tag">AWS</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          <span data-tr="Veritabanları" data-en="Databases">Veritabanları</span>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">SQLite</span>
+        </div>
+      </div>
+
+      <div class="skill-group soft" style="grid-column: span 2;">
+        <div class="skill-group-title">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span data-tr="Soft Skills" data-en="Soft Skills">Soft Skills</span>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag" data-tr="Analitik Düşünme" data-en="Analytical Thinking">Analitik Düşünme</span>
+          <span class="skill-tag" data-tr="Problem Çözme" data-en="Problem Solving">Problem Çözme</span>
+          <span class="skill-tag" data-tr="Takım Çalışması" data-en="Teamwork">Takım Çalışması</span>
+          <span class="skill-tag" data-tr="Etkili İletişim" data-en="Effective Communication">Etkili İletişim</span>
+          <span class="skill-tag" data-tr="Sürekli Öğrenme" data-en="Continuous Learning">Sürekli Öğrenme</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-label" data-tr="Projeler" data-en="Projects">Projeler</div>
+    <div class="projects-grid">
+
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="project-thumb">
+          <!-- PROJE GÖRSELI: proje1.png ekle, silinecek placeholder -->
+          <img src="proje1.png" alt="Feature Engineering"
+               onerror="this.parentElement.innerHTML='<div class=\'project-thumb-pattern\'></div><span class=\'project-thumb-label\'>proje1.png</span>'" />
+        </div>
+        <div class="project-body">
+          <h3 class="project-title" data-tr="Feature Engineering ile Model Performansı Artırma" data-en="Boosting Model Performance with Feature Engineering">Feature Engineering ile Model Performansı Artırma</h3>
+          <p class="project-desc"
+             data-tr="Ham veri üzerinde uygulanan feature engineering tekniklerinin makine öğrenmesi modellerinin doğruluğunu nasıl etkilediğini analiz eden bir projedir. Farklı veri dönüşümleri ve özellik seçimi yöntemleri kullanılarak model performansı karşılaştırılmıştır."
+             data-en="A project analyzing how feature engineering techniques applied on raw data affect the accuracy of machine learning models. Model performance was compared using different data transformations and feature selection methods.">
+            Ham veri üzerinde uygulanan feature engineering tekniklerinin makine öğrenmesi modellerinin doğruluğunu nasıl etkilediğini analiz eden bir projedir.
+          </p>
+          <div class="project-problem">
+            <strong data-tr="Çözdüğü Problem" data-en="Problem Solved">Çözdüğü Problem</strong>
+            <span data-tr="Makine öğrenmesi projelerinde veri kalitesi model başarısını doğrudan etkiler. Bu proje, doğru feature engineering yöntemlerinin model performansını nasıl artırabileceğini gösterir."
+                  data-en="Data quality directly affects model success in ML projects. This project demonstrates how proper feature engineering methods can boost model performance.">
+              Makine öğrenmesi projelerinde veri kalitesi model başarısını doğrudan etkiler. Doğru feature engineering yöntemlerinin model performansını nasıl artırabileceğini gösterir.
+            </span>
+          </div>
+          <div class="project-techs">
+            <span class="project-tech">Python</span>
+            <span class="project-tech">Pandas</span>
+            <span class="project-tech">Scikit-learn</span>
+            <span class="project-tech">Seaborn</span>
+            <span class="project-tech">Jupyter</span>
+          </div>
+          <div class="project-links">
+            <!-- GitHub linkini buraya ekle -->
+            <a href="https://github.com/fatihselimbaytar/feature-engineering-changes-the-game" target="_blank" class="project-link">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub
+            </a>
+            <!-- Canlı demo yoksa bu butonu kaldır veya linki ekle -->
+            <a href="#" class="project-link" style="opacity:0.4; pointer-events:none;" title="Demo mevcut değil">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Demo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="project-thumb">
+          <!-- PROJE GÖRSELI: proje2.png ekle -->
+          <img src="proje2.png" alt="EDA Project"
+               onerror="this.parentElement.innerHTML='<div class=\'project-thumb-pattern\'></div><span class=\'project-thumb-label\'>proje2.png</span>'" />
+        </div>
+        <div class="project-body">
+          <h3 class="project-title" data-tr="Exploratory Data Analysis (EDA) Projesi" data-en="Exploratory Data Analysis (EDA) Project">Exploratory Data Analysis (EDA) Projesi</h3>
+          <p class="project-desc"
+             data-tr="Kapsamlı EDA yaparak verinin yapısını, dağılımını ve değişkenler arasındaki ilişkileri analiz ettim. Ham veriyi anlayarak modelleme süreci için anlamlı içgörüler elde edildi."
+             data-en="Performed comprehensive EDA to analyze data structure, distributions, and relationships between variables. Meaningful insights were derived from raw data to prepare for the modeling process.">
+            Kapsamlı EDA yaparak verinin yapısını, dağılımını ve değişkenler arasındaki ilişkileri analiz ettim. Ham veriyi anlayarak modelleme süreci için anlamlı içgörüler elde edildi.
+          </p>
+          <div class="project-problem">
+            <strong data-tr="Yapılan Çalışmalar" data-en="Key Work">Yapılan Çalışmalar</strong>
+            <span data-tr="Eksik/aykırı değer analizi, korelasyon incelemesi, görselleştirme teknikleri ile modelleme için veri hazırlığı belirlendi."
+                  data-en="Missing/outlier value analysis, correlation examination, visualization techniques, and data preparation for modeling were determined.">
+              Eksik/aykırı değer analizi, korelasyon incelemesi, görselleştirme teknikleri ile modelleme için veri hazırlığı belirlendi.
+            </span>
+          </div>
+          <div class="project-techs">
+            <span class="project-tech">Python</span>
+            <span class="project-tech">Pandas</span>
+            <span class="project-tech">NumPy</span>
+            <span class="project-tech">Matplotlib</span>
+            <span class="project-tech">Seaborn</span>
+            <span class="project-tech">Jupyter</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/fatihselimbaytar/Istanbul-sales-house" target="_blank" class="project-link">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub
+            </a>
+            <a href="#" class="project-link" style="opacity:0.4; pointer-events:none;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section id="certificates">
+  <div class="container">
+    <div class="section-label" data-tr="Sertifikalar" data-en="Certificates">Sertifikalar</div>
+    <div class="certs-grid">
+
+      <div class="cert-card">
+        <div class="cert-image">
+          <img src="sert1.png" alt="Data Science Essentials with Python"
+                onerror="this.parentElement.innerHTML='<div class=\'cert-image-placeholder\'><svg width=\'28\' height=\'28\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'14\' rx=\'2\'/><path d=\'M8 21h8M12 17v4\'/></svg><span>sert1.png</span></div>'" />
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">Data Science Essentials with Python</div>
+          <div class="cert-issuer">Cisco Networking Academy</div>
+          <div class="cert-date">2026</div> </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-image">
+          <img src="sert2.png" alt="Artificial Intelligence Fundamentals"
+                onerror="this.parentElement.innerHTML='<div class=\'cert-image-placeholder\'><svg width=\'28\' height=\'28\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'14\' rx=\'2\'/><path d=\'M8 21h8M12 17v4\'/></svg><span>sert2.png</span></div>'" />
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">Artificial Intelligence Fundamentals</div>
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-date">2026</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-image">
+          <img src="sert3.png" alt="EF SET English Certificate"
+                onerror="this.parentElement.innerHTML='<div class=\'cert-image-placeholder\'><svg width=\'28\' height=\'28\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'14\' rx=\'2\'/><path d=\'M8 21h8M12 17v4\'/></svg><span>sert1.png</span></div>'" />
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">EF SET English Certificate</div>
+          <div class="cert-issuer">EF SET</div>
+          <div class="cert-date">2025</div> </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-image">
+          <img src="sert4.png" alt="Python Basic Certificate"
+                onerror="this.parentElement.innerHTML='<div class=\'cert-image-placeholder\'><svg width=\'28\' height=\'28\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'14\' rx=\'2\'/><path d=\'M8 21h8M12 17v4\'/></svg><span>sert1.png</span></div>'" />
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">Python Basic Certificate</div>
+          <div class="cert-issuer">HackerRank</div>
+          <div class="cert-date">2025</div> </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-image">
+          <img src="sert5.png" alt="Is Bankasi ProSchool IT Class"
+                onerror="this.parentElement.innerHTML='<div class=\'cert-image-placeholder\'><svg width=\'28\' height=\'28\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'14\' rx=\'2\'/><path d=\'M8 21h8M12 17v4\'/></svg><span>sert1.png</span></div>'" />
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">Is Bankasi ProSchool IT Class</div>
+          <div class="cert-issuer">Is Bankası ProSchool</div>
+          <div class="cert-date">2025</div> </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-image">
+          <img src="sert6.png" alt="Is Bankasi ProSchool Data AI Class"
+                onerror="this.parentElement.innerHTML='<div class=\'cert-image-placeholder\'><svg width=\'28\' height=\'28\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'14\' rx=\'2\'/><path d=\'M8 21h8M12 17v4\'/></svg><span>sert1.png</span></div>'" />
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">Is Bankasi ProSchool Data AI Class</div>
+          <div class="cert-issuer">Is Bankasi ProSchool</div>
+          <div class="cert-date">2025</div> </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-image">
+          <img src="sert7.png" alt="HackerRank Problem Solving Intermediate Certificate"
+                onerror="this.parentElement.innerHTML='<div class=\'cert-image-placeholder\'><svg width=\'28\' height=\'28\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'14\' rx=\'2\'/><path d=\'M8 21h8M12 17v4\'/></svg><span>sert1.png</span></div>'" />
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">HackerRank Problem Solving Intermediate Certificate</div>
+          <div class="cert-issuer">HackerRank</div>
+          <div class="cert-date">2025</div> </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-image">
+          <img src="sert8.png" alt="LinkedIn Learning Proje Liderligi"
+                onerror="this.parentElement.innerHTML='<div class=\'cert-image-placeholder\'><svg width=\'28\' height=\'28\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'14\' rx=\'2\'/><path d=\'M8 21h8M12 17v4\'/></svg><span>sert1.png</span></div>'" />
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">LinkedIn Learning Proje Liderligi</div>
+          <div class="cert-issuer">LinkedIn Learning</div>
+          <div class="cert-date">2025</div> </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-label" data-tr="Eğitim" data-en="Education">Eğitim</div>
+
+    <div class="edu-item">
+      <div>
+        <div class="edu-period">2025 — 2029</div>
+        <div class="edu-period" data-tr="Tahmini Mezuniyet" data-en="Expected Graduation" style="margin-top:4px; font-size:11px; opacity:0.6;">Tahmini Mezuniyet</div>
+      </div>
+      <div>
+        <div class="edu-school">İstanbul Üniversitesi</div>
+        <div class="edu-degree" data-tr="Bilgisayar Bilimleri · 1. Sınıf" data-en="Computer Science · 1st Year">Bilgisayar Bilimleri · 1. Sınıf</div>
+        <div class="edu-note" data-tr="Lisans" data-en="Bachelor's Degree">Lisans</div>
+      </div>
+    </div>
+
+    <!-- EĞİTİM 2 — varsa ekle -->
+    <!-- <div class="edu-item">
+      <div>
+        <div class="edu-period">2022 — 2025</div>
+      </div>
+      <div>
+        <div class="edu-school">OKUL ADI BURAYA</div>
+        <div class="edu-degree">BÖLÜM BURAYA</div>
+      </div>
+    </div> -->
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label" data-tr="İletişim" data-en="Contact">İletişim</div>
+    <div class="contact-links">
+
+      <a href="mailto:fatihselimbaytarr@gmail.com" class="contact-row">
+        <span class="contact-platform">Email</span>
+        <span class="contact-value">fatihselimbaytarr@gmail.com</span>
+        <span class="contact-arrow">↗</span>
+      </a>
+
+      <a href="https://www.linkedin.com/in/fatihselimbaytar" target="_blank" class="contact-row">
+        <span class="contact-platform">LinkedIn</span>
+        <span class="contact-value">linkedin.com/in/fatihselimbaytar</span>
+        <span class="contact-arrow">↗</span>
+      </a>
+
+      <a href="https://github.com/fatihselimbaytar" target="_blank" class="contact-row">
+        <span class="contact-platform">GitHub</span>
+        <span class="contact-value">github.com/fatihselimbaytar</span>
+        <span class="contact-arrow">↗</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2025 Fatih Selim Baytar</span>
+      <a href="#hero" class="footer-back">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+        <span data-tr="Başa Dön" data-en="Back to Top">Başa Dön</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── THEME ──
+  const themeBtn = document.getElementById('themeBtn');
+  function toggleTheme() {
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    document.body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    themeBtn.textContent = isDark ? '☀️' : '🌙';
+    localStorage.setItem('theme', isDark ? 'light' : 'dark');
+  }
+  // Restore saved theme
+  const saved = localStorage.getItem('theme');
+  if (saved === 'dark') {
+    document.body.setAttribute('data-theme', 'dark');
+    themeBtn.textContent = '🌙';
+  }
+
+  // ── LANGUAGE ──
+  let currentLang = 'tr';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+    document.querySelectorAll('[data-tr]').forEach(el => {
+      const val = el.getAttribute('data-' + lang);
+      if (val) {
+        // If it's an input/button, set value; else set textContent or innerHTML
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+          el.value = val;
+        } else {
+          el.textContent = val;
+        }
+      }
+    });
+  }
+
+  // ── SMOOTH REVEAL on scroll ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.skill-group, .project-card, .cert-card, .exp-item, .edu-item, .contact-row').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(12px)';
+    el.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
